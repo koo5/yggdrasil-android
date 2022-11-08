@@ -58,7 +58,6 @@ jobs:
         ANDROID_NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
 
     - name: Gradle build  
-      if: github.event_name != 'release' && github.ref_name != 'main'
       run: |
         chmod +x gradlew
         ./gradlew buildRelease
