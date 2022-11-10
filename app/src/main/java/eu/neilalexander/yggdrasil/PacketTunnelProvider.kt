@@ -1,6 +1,7 @@
 package eu.neilalexander.yggdrasil
 
 import android.content.*
+import android.net.ProxyInfo
 import android.net.VpnService
 import android.os.ParcelFileDescriptor
 import android.system.OsConstants
@@ -87,7 +88,7 @@ class PacketTunnelProvider: VpnService() {
             .setBlocking(true)
             .setMtu(yggdrasil.mtu.toInt())
             .setSession("Yggdrasil")
-            .setHttpProxy(ProxyInfo.buildDirectProxy("200:a01c:c28:4ee2:b917:9c99:891c:6ec7", 3128, List<String>([])))
+            .setHttpProxy(ProxyInfo.buildDirectProxy("200:a01c:c28:4ee2:b917:9c99:891c:6ec7", 3128, List<String>(0)))
         // On Android API 29+ apps can opt-in/out to using metered networks.
         // If we don't set metered status of VPN it is considered as metered.
         // If we set it to false, then it will inherit this status from underlying network.
